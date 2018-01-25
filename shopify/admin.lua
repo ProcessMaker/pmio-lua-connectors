@@ -1,6 +1,6 @@
 --[[
 
-Shopify Admin API connector @link https://help.shopify.com/api/reference/shop
+# [Shopify Admin API](https://help.shopify.com/api/reference/shop) connector.
 
 ### Authorization
 
