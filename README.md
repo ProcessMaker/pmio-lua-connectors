@@ -1,5 +1,5 @@
 # pmio-lua-connectors
 
 * Shopify
- - Admin API
+  - Admin API
 
