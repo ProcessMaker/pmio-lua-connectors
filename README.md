@@ -13,10 +13,14 @@
 ### Install Lua
 
 Linux:
-`sudo yum install lua`
+```
+sudo yum install lua
+```
 
 MacOS:
-`brew install lua`
+```
+brew install lua
+```
 
 Validate your installation:
 
@@ -29,8 +33,14 @@ Lua 5.2.4  Copyright (C) 1994-2015 Lua.org, PUC-Rio
 
 Linux:
 
-`sudo yum install readline-devel`
-`sudo yum install luarocks` OR if there is no luarocks package you'll have to install LuaRocks from the sources:
+```
+sudo yum install readline-devel
+```
+
+```sudo yum install luarocks```
+
+OR if there is no luarocks package you'll have to install LuaRocks from the sources:
+
 ```
 wget https://luarocks.org/releases/luarocks-2.4.3.tar.gz
 tar xzf luarocks-2.4.3.tar.gz
@@ -39,8 +49,7 @@ tar xzf luarocks-2.4.3.tar.gz
 
 MacOS:
 
-Its already comes with lua package, no need to install separately.
-
+Its already comes with LUA package, no need to install separately.
 
 Validate your installation:
 
@@ -50,7 +59,6 @@ LuaRocks 2.3.0, a module deployment system for Lua
 ```
 
 ### Install network modules
-
 
 For Linux you'll have to install openssl library if required:
 
@@ -65,7 +73,6 @@ sudo luarocks install --server=http://luarocks.org/dev ltn12
 sudo luarocks install luasec
 sudo luarocks install luasocket
 ```
-
 
 ### Validate everything working
 
