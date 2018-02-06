@@ -40,8 +40,6 @@ local https = require("ssl.https")
 local ltn12 = require"ltn12"
 local cjson = require("cjson")
 
-local mime = require("mime")
-
 local inputVar = cjson.decode(io.stdin:read("*a"))
 
 local respbody = {}
