@@ -2,16 +2,16 @@
 
 # [Dropbox Business API](https://www.dropbox.com/developers/documentation) connector.
 
-### Authorization
+###  Oauth 2.0 authorization
 
-Authorization use [Basic authentication](https://www.dropbox.com/developers/documentation/http/documentation#oauth2-authorize).
+ Oauth 2.0 authorization[Oauth 2.0 authorization](https://www.dropbox.com/developers/documentation/http/documentation#oauth2-authorize).
 
 ## Input parameters
 
-* 'api_key' - application user email used to authorize the call.
-* api_endpoint - API endpoint URI, e.g. `user`.
-* method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g. `{"blog":{"title":"Test Title"}}` structure used to create a Blog item.
+* 'api_key' - Oauth 2.0 authorization token.
+* api_endpoint - API endpoint URI, e.g. `files/list_folder`.
+* method - optional request method, defauls to `POST`, could be `GET`, `POST`, `PUT`, `DELETE`.
+* post_data - optional JSON string used to post data, e.g.
 
 ## Output parameters
 
