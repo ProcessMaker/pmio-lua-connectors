@@ -13,9 +13,22 @@ Authorization use [Basic authentication](console.developers.google.com).
 * `refresh_token`
 * `calendarId` - Id of the calendar (email)
 
-* api_endpoint - API endpoint URI, e.g. `user`.
-* method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g. `{"blog":{"title":"Test Title"}}` structure used to create a Blog item.
+* method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PATCH`, `PUT`, `DELETE`.
+* post_data - optional JSON string used to post data, e.g.
+  ```
+  {
+    "id": "your@gmail.com",
+    "notificationSettings": {
+      "notifications": [
+        {
+          "method": "email",
+          "type": "eventCreation"
+        }
+      ]
+    },
+    "summary": "Create a connector"
+  }
+  ```
 
 ## Output parameters
 
@@ -26,7 +39,7 @@ Example connector output parameters:
 ```
 id = {response.id}
 summary = {response.summary}
-timeZone = {respons.timeZone}
+timeZone = {response.timeZone}
 ```
 
 * response - JSON decoded structure received from API response.
@@ -72,7 +85,6 @@ r, c, h = https.request{
     headers = {
          ["Content-Type"] = "application/x-www-form-urlencoded",
          ["Content-Length"] = tostring(#refreshTokenBody)
-  -- TODO add Authorization header if access_token provided
     },
     source = ltn12.source.string(refreshTokenBody),
     sink = ltn12.sink.table(respbody)
@@ -94,7 +106,6 @@ r, c,  h = https.request{
          ["Authorization"] = "Bearer " .. accessToken,
          ["Content-Type"] = "application/json",
          ["Content-Length"] = tostring(#reqbody)
-  -- TODO add Authorization header if access_token provided
     },
     source = ltn12.source.string(reqbody),
     sink = ltn12.sink.table(respbody)

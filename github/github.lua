@@ -14,7 +14,6 @@ Authorization use [Basic authentication](https://developer.github.com/v3/auth/#b
 
 * api_endpoint - API endpoint URI, e.g. `user`.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g. `{"blog":{"title":"Test Title"}}` structure used to create a Blog item.
 
 ## Output parameters
 
@@ -59,7 +58,6 @@ r, c,  h = https.request{
     headers = {
          ["Content-Type"] = "application/json",
          ["Content-Length"] = tostring(#reqbody)
-  -- TODO add Authorization header if access_token provided
     },
     source = ltn12.source.string(reqbody),
     sink = ltn12.sink.table(respbody)
