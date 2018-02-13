@@ -1,10 +1,9 @@
 --[[
+# [DocuSign API](https://docs.docusign.com/esign/guide/usage/quickstart.html) connector.
 
-# [DocuSign API DOCUMENTATION](https://docs.docusign.com/esign/guide/usage/quickstart.html) connector.
+### Authentication
 
-### Authorization
-
-Authorization use [Basic authentication](https://admindemo.docusign.com).
+Authentication use [Authentication](https://admindemo.docusign.com).
 
 ## Input parameters
 
@@ -12,9 +11,16 @@ Authorization use [Basic authentication](https://admindemo.docusign.com).
 * `password` - user password used to authorize the call
 * `integratorKey` - integration and authenticate with the DocuSign platform
 
-* api_endpoint - API endpoint URI, e.g. `user`.
+* `baseUrl` - https://demo.docusign.net/restapi/v2/
+* api_endpoint - API endpoint URI.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g. `{"blog":{"title":"Test Title"}}` structure used to create a Blog item.
+* post_data - optional JSON string used to post data, e.g. `"documents":
+  {
+      "documentBase64": "FILE1_BASE64",
+      "documentId": "1",
+      "fileExtension": "pdf",
+      "name": "NDA.pdf"
+  }
 
 ## Output parameters
 
@@ -44,7 +50,7 @@ local inputVar = cjson.decode(io.stdin:read("*a"))
 local respbody = {}
 local reqbody = inputVar.post_data and cjson.encode(inputVar.post_data) or ''
 
-local url = 'https://demo.docusign.net/restapi/v2' .. '/' .. inputVar.api_endpoint
+local url = inputVar.baseUrl .. inputVar.api_endpoint
 
 local user = inputVar.username
 local password = inputVar.password
@@ -63,7 +69,6 @@ r, c,  h = https.request{
          }),
          ["Content-Type"] = "application/json",
          ["Content-Length"] = tostring(#reqbody)
-  -- TODO add Authorization header if access_token provided
     },
     source = ltn12.source.string(reqbody),
     sink = ltn12.sink.table(respbody)
