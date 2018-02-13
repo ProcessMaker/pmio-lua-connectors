@@ -8,7 +8,7 @@ Authorization use [Basic authentication](https://developer.github.com/v3/auth/#b
 
 ## Input parameters
 
-* `username` - application user email used to authorize the call.
+* `username` - application github username email used to authorize the call.
 
 * `token` - user password used to authorize the call
 
