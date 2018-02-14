@@ -2,16 +2,16 @@
 
 # [Dropbox Business API](https://www.dropbox.com/developers/documentation) connector.
 
-###  Oauth 2.0 authorization
+###  Authorization
 
- Oauth 2.0 authorization[Oauth 2.0 authorization](https://www.dropbox.com/developers/documentation/http/documentation#oauth2-authorize).
+ Authorization use [Oauth 2.0 authorization](https://www.dropbox.com/developers/documentation/http/documentation#oauth2-authorize).
 
 ## Input parameters
 
 * 'api_key' - Oauth 2.0 authorization token.
 * api_endpoint - API endpoint URI, e.g. `files/list_folder`.
 * method - optional request method, defauls to `POST`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g.
+* post_data - optional JSON string used to post data.
 
 ## Output parameters
 
@@ -53,7 +53,6 @@ r, c,  h = https.request{
          ["Authorization"] = "Bearer " .. apiKey,
          ["Content-Type"] = "application/json",
          ["Content-Length"] = tostring(#reqbody)
-  -- TODO add Authorization header if access_token provided
     },
     source = ltn12.source.string(reqbody),
     sink = ltn12.sink.table(respbody)
