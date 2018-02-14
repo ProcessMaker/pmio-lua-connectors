@@ -3,7 +3,7 @@
 
 ### Authentication
 
-Authentication use [Authentication](https://admindemo.docusign.com).
+Authentication use [Authentication](https://docs.docusign.com/esign/guide/authentication/legacy_auth.html).
 
 ## Input parameters
 
