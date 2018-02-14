@@ -3,7 +3,7 @@
 
 ### Authentication
 
-Authentication use [Authentication](https://docs.docusign.com/esign/guide/authentication/legacy_auth.html).
+Authentication use [DocuSign Legacy Header Authentication](https://docs.docusign.com/esign/guide/authentication/legacy_auth.html).
 
 ## Input parameters
 
