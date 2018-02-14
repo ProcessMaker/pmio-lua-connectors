@@ -4,7 +4,7 @@
 
 ### Authorization
 
-Authorization use [Basic authentication](console.developers.google.com).
+Authorization use [Oauth authentication](https://developers.google.com/google-apps/calendar/auth).
 
 ## Input parameters
 
@@ -94,7 +94,7 @@ local accessToken = cjson.decode(table.concat(respbody))["access_token"]
 
 respbody = {}
 
-local url = 'https://www.googleapis.com/calendar/v3/calendars/' .. inputVar.calendarId
+local url = 'https://www.googleapis.com/calendar/v3/' .. inputVar.calendarId
 
 
 local method = inputVar.method and inputVar.method or 'GET'
