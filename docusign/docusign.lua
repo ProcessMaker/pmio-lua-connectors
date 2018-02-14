@@ -14,13 +14,18 @@ Authentication use [Authentication](https://admindemo.docusign.com).
 * `baseUrl` - https://demo.docusign.net/restapi/v2/
 * api_endpoint - API endpoint URI.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data, e.g. `"documents":
-  {
-      "documentBase64": "FILE1_BASE64",
-      "documentId": "1",
-      "fileExtension": "pdf",
-      "name": "NDA.pdf"
-  }
+* post_data - optional JSON string used to post data, e.g.
+  ```
+    {
+    "documents":
+      {
+        "documentBase64": "FILE1_BASE64",
+        "documentId": "1",
+        "fileExtension": "pdf",
+        "name": "NDA.pdf"
+      }
+    }
+  ```
 
 ## Output parameters
 
