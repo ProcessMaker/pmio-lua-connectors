@@ -4,7 +4,7 @@
 
 ### Authorization
 
-Authorization use [OAuth 2.0 ](https://developer.paypal.com/docs/api/overview/#authentication-and-authorization).
+Authorization use [OAuth 2.0](https://developer.paypal.com/docs/api/overview/#authentication-and-authorization).
 
 ## Input parameters
 
@@ -60,7 +60,7 @@ local clientSecret = inputVar.client_secret
 
 r, c, h = https.request{
     method = 'POST',
-    url = 'https://api.sandbox.paypal.com/v1/oauth2/token',
+    url = 'https://api.sandbox.paypal.com',
     user = clientId,
     password = clientSecret,
     headers = {
@@ -74,8 +74,7 @@ r, c, h = https.request{
 local accessToken = cjson.decode(table.concat(respbody))["access_token"]
 respbody = {}
 
-local url = 'https://api.sandbox.paypal.com/' .. inputVar.api_endpoint
-
+url =  url .. inputVar.paypal_domain .. '/' .. inputVar.api_endpoint
 
 local method = inputVar.method and inputVar.method or 'GET'
 
