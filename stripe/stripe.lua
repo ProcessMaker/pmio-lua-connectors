@@ -4,7 +4,7 @@
 
 ### Authorization
 
-Authorization use [API key](https://dashboard.stripe.com/account/apikeys).
+Authorization use [API key](https://stripe.com/docs/dashboard#api-keys).
 
 ## Input parameters
 
@@ -56,7 +56,7 @@ local inputVar = cjson.decode(io.stdin:read("*a"))
 local respbody = {}
 local reqbody = inputVar.post_data and cjson.encode(inputVar.post_data) or ''
 
-local url = 'https://api.stripe.com/v1' .. '/' .. inputVar.api_endpoint
+local url = 'https://api.stripe.com/v1/' .. inputVar.api_endpoint
 
 local token = inputVar.secret_key
 
