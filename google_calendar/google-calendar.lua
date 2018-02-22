@@ -11,7 +11,7 @@ Authorization use [Oauth authentication](https://developers.google.com/google-ap
 * `client_id` - application client_secret.
 * `client_secret` - client_secret
 * `refresh_token`
-* `calendarId` - Id of the calendar (email)
+* `api_endpoint` - api endpoint, e.g. calendars/example@gmail.com
 
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PATCH`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data, e.g.
@@ -94,7 +94,7 @@ local accessToken = cjson.decode(table.concat(respbody))["access_token"]
 
 respbody = {}
 
-local url = 'https://www.googleapis.com/calendar/v3/' .. inputVar.calendarId
+local url = 'https://www.googleapis.com/calendar/v3/' .. inputVar.api_endpoint
 
 
 local method = inputVar.method and inputVar.method or 'GET'
