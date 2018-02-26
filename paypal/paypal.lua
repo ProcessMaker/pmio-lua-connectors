@@ -55,12 +55,13 @@ local inputVar = cjson.decode(io.stdin:read("*a"))
 local respbody = {}
 local reqbody = inputVar.post_data and cjson.encode(inputVar.post_data) or ''
 
+local paypalUrl = inputVar.paypal_url
 local clientId = inputVar.client_id
 local clientSecret = inputVar.client_secret
 
 r, c, h = https.request{
     method = 'POST',
-    url = 'https://api.sandbox.paypal.com',
+    url = paypalUrl .. '/v1/oauth2/token',
     user = clientId,
     password = clientSecret,
     headers = {
@@ -74,7 +75,7 @@ r, c, h = https.request{
 local accessToken = cjson.decode(table.concat(respbody))["access_token"]
 respbody = {}
 
-url =  url .. inputVar.paypal_domain .. '/' .. inputVar.api_endpoint
+url =  paypalUrl .. '/' .. inputVar.api_endpoint
 
 local method = inputVar.method and inputVar.method or 'GET'
 
