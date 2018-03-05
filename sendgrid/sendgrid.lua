@@ -1,10 +1,10 @@
 --[[
 
-# [Sendgrid API](https://app.sendgrid.com/guide/integrate/langs/curl) connector.
+# [Sendgrid API v3](https://sendgrid.com/docs/API_Reference/api_v3.html) connector.
 
 ### Authorization
 
-Authorization use [Authorization](https://sendgrid.com/docs/API_Reference/api_v3.html).
+Authorization use [Sendgrid API Keys](https://sendgrid.com/docs/API_Reference/Web_API_v3/API_Keys/index.html).
 
 ## Input parameters
 
