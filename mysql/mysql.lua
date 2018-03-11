@@ -26,9 +26,11 @@
   Example response:
 
   ```
-  {"name":"Jose das Couves","email":"jose@couves.com"}
-  {"name":"Manoel Joaquim","email":"manoel.joaquim@cafundo.com"}
-  {"name":"Maria das Dores","email":"maria@dores.com"}
+  [
+    {"name":"Jose das Couves","email":"jose@couves.com"}
+    {"name":"Manoel Joaquim","email":"manoel.joaquim@cafundo.com"}
+    {"name":"Maria das Dores","email":"maria@dores.com"}
+  ]
   ```
 ]]--
 local cjson = require("cjson")
@@ -51,12 +53,13 @@ con = assert (env:connect(database, username, password, host, port))
 -- retrieve a cursor
 cur = assert (con:execute(sqlQuery))
 -- print all rows
+local rows = {}
 row = cur:fetch ({}, "a")
 while row do
-  print(cjson.encode(row))
-  -- reusing the table of results
-  row = cur:fetch (row, "a")
+  rows[#rows+1] = row
+  row = cur:fetch ({}, "a")
 end
+print(cjson.encode(rows))
 -- close everything
 cur:close() -- already closed because all the result set was consumed
 con:close()
