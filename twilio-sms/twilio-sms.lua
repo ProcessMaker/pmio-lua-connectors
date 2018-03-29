@@ -11,10 +11,16 @@ Authorization use [Basic authentication]( https://www.twilio.com/docs/api/messag
 * `to` - Phone Number.
 * `from` - your Twilio Phone Number.
 * `body` - text your message.
-* `auth_token` -
 * `api_endpoint` - API endpoint URI, e.g. `/Messages.json`.
 * method - optional request method, defauls to `POST`, could be `GET`, `POST`, `PUT`, `DELETE`.
-* post_data - optional JSON string used to post data.
+* post_data - JSON string used to post data. e.g.
+  ```
+  {
+    "to": "+10000000000",
+    "from": "+10000000000",
+    "body": "Hello my friend!"
+  }
+  ```
 
 ## Output parameters
 
@@ -76,7 +82,6 @@ end
 local inputVar = cjson.decode(io.stdin:read("*a"))
 
 local respbody = {}
-local reqbody = inputVar.post_data and cjson.encode(inputVar.post_data) or ''
 
 local accountSid = inputVar.account_sid
 local apiEndpoint = inputVar.api_endpoint
@@ -85,7 +90,12 @@ local to = inputVar.to
 local from = inputVar.from
 local body = inputVar.body
 
-local postData = 'To=' .. url_encode(to) .. '&From=' .. url_encode(from) .. '&Body=' .. url_encode(body)
+local reqbody = ''
+for key,value in pairs(inputVar.post_data) do
+    reqbody = reqbody .. key:sub(1,1):upper()..key:sub(2) .. '=' .. url_encode(value) .. '&'
+end
+
+reqbody = reqbody:sub(1, -2)
 
 local url = 'https://api.twilio.com/2010-04-01/Accounts/' .. accountSid .. '/' .. apiEndpoint
 
@@ -100,9 +110,9 @@ r, c,  h = https.request{
     headers = {
          ["Content-Type"] = "application/x-www-form-urlencoded",
          ["Accept"] = "application/json",
-         ["Content-Length"] = tostring(#postData)
+         ["Content-Length"] = tostring(#reqbody)
     },
-    source = ltn12.source.string(postData),
+    source = ltn12.source.string(reqbody),
     sink = ltn12.sink.table(respbody)
 }
 
