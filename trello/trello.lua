@@ -4,7 +4,7 @@
 
 ### Authorization
 
-Authorization use [OAuth 2.0](https://developers.trello.com/v1.0/reference#authorization.
+Authorization use [OAuth 2.0](https://developers.trello.com/v1.0/reference#authorization.)
 
 ## Input parameters
 
