@@ -4,10 +4,11 @@
 [Discovery](https://watson-api-explorer.mybluemix.net/apis/discovery-v1#!/Configurations/listConfigurations)
 
 ## Input parameters
-* watson_domain - e.g. `https://watson-api-explorer.mybluemix.net/`.
-* api_endpoint - API endpoint URI, e.g. `personality-insights/api/v3/profile`.
-* text - A maximum of 20 MB of content to analyze, though the service requires much less text.
-
+* watson_domain - e.g. `https://watson-api-explorer.mybluemix.net/apis/discovery-v1`.
+* version - e.g. `2018-03-05`.
+* user - username.
+* password - your password
+* api_endpoint - API endpoint URI, e.g. `v1/environments/system/configurations`.
 * method - optional request method, defauls to `POST`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
