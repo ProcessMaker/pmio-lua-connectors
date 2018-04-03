@@ -4,13 +4,13 @@
 
 ### Authorization
 
-Authorization use [OAuth 2.0](https://developers.trello.com/v1.0/reference#authorization.)
+Authorization use [OAuth 2.0](https://developers.trello.com/v1.0/reference#authorization).
 
 ## Input parameters
 
 * token - Trello Token.
 * api_key - API Key.
-* api_endpoint -API endpoint URI, e.g. 'boards/id'.
+* api_endpoint - API endpoint URI, e.g. 'boards/id'.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
