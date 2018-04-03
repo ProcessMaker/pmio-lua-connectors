@@ -8,7 +8,7 @@ Authorization use [API key](https://api.blockchain.info/customer/signup)
 
 ## Input parameters
 
-* api_endpoint -API endpoint URI, e.g. 'boards/id'.
+* api_endpoint - API endpoint URI, e.g. 'boards/id'.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 ```
