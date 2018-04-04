@@ -4,20 +4,24 @@
 ## Requirements:
 
   * lua-cjson
-  * [luasql-mysql](https://keplerproject.github.io/luasql/index.html)
+  * [luasql](https://keplerproject.github.io/luasql/index.html)
 
   ```
-  sudo luarocks install luasql-mysql
   sudo luarocks install lua-cjson
+
+  sudo luarocks install luasql-mysql
+  or
+  sudo luarocks install luasql-postgres
   ```
 
 ## Input parameters
 
+  * driver - required driver ("mysql" or "postgres")
   * database - name of database to connect
-  * username - username to MySQL server
+  * username - username to server
   * password - password for username
-  * host - host of MySQL (default: 'localhost')
-  * port - port of MySQL (default: 3306)
+  * host - host of server (default: 'localhost')
+  * port - port of server (default: 3306)
   * sqlQuery - SQL query to execute, e.g. `SELECT name, email from people`
 
 
@@ -34,10 +38,21 @@
   ```
 ]]--
 local cjson = require("cjson")
--- load driver
-local driver = require "luasql.mysql"
 
 local inputVar = cjson.decode(io.stdin:read("*a"))
+
+-- load driver
+local driver = nil
+
+if inputVar.driver == "mysql" then
+  driver = require "luasql.mysql"
+  -- create environment object
+  env = assert (driver.mysql())
+elseif inputVar.driver == "postgres" then
+  driver = require "luasql.postgres"
+  -- create environment object
+  env = assert (driver.postgres())
+end
 
 local database = inputVar.database
 local username = inputVar.username
@@ -46,8 +61,6 @@ local host = inputVar.host or 'localhost'
 local port = inputVar.port or 3306
 local sqlQuery = inputVar.sql_query
 
--- create environment object
-env = assert (driver.mysql())
 -- connect to data source
 con = assert (env:connect(database, username, password, host, port))
 -- retrieve a cursor
