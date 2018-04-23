@@ -6,6 +6,18 @@
 
 Authorization use [OAuth 2.0](https://developer.atlassian.com/cloud/confluence/rest/#auth).
 
+#[Jira Service Desk REST API](https://developer.atlassian.com/cloud/jira/service-desk/rest/#jira-cloud-platform-apis)
+
+### Authorization
+
+Authorization use [OAuth 2.0](https://developer.atlassian.com/cloud/jira/service-desk/rest/#authentication)
+
+#[Jira Cloud REST API](https://developer.atlassian.com/cloud/jira/platform/rest/#gettingstarted)
+
+### Authorization
+
+Authorization use [OAuth 2.0](https://developer.atlassian.com/cloud/jira/platform/rest/#authentication)
+
 ## Input parameters
 
 * api_token - API Token.
