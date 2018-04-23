@@ -6,8 +6,10 @@
 
 Authorization use [OAuth 2.0](https://developer.atlassian.com/cloud/bitbucket/oauth-2/).
 
+
 ## Input parameters
 
+* username - your username.
 * app_password - your app password.
 * api_endpoint - API endpoint URI, e.g. `/2.0/repositories`.
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
