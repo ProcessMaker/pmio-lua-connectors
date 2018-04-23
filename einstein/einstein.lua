@@ -8,7 +8,7 @@ Authorization use [OAuth Authentication](https://developer.salesforce.com/docs/a
 
 ### Requirements
 
-  * [lua-multipart-post](https://github.com/catwell/lua-multipart-post) that is not installable via LuaRocks. This is required for `multipart/form-data` body encode and getting `boundary`.
+  * luarocks install multipart-post
 
 
 ## Input parameters
@@ -45,7 +45,6 @@ Example connector output parameters:
 * headers - headers structure received from API response.
 ]]--
 
-package.path = package.path .. ";./?.lua"
 local https = require("ssl.https")
 local ltn12 = require"ltn12"
 local cjson = require("cjson")
