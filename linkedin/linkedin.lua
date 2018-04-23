@@ -1,9 +1,9 @@
 --[[
-# [LinkedIn API](https://developer.linkedin.com/docs/ref/v2/profile/basic-profile) connector.
+# [LinkedIn API](https://developer.linkedin.com/docs/rest-api) connector.
 
 ### Authorization
 
-Authorization use [OAuth 2.0](https://developer.linkedin.com/docs/rest-api).
+Authorization use [OAuth 2.0](https://developer.linkedin.com/docs/oauth2).
 
 ## Input parameters
 
