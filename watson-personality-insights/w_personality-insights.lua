@@ -6,8 +6,10 @@
 ## Input parameters
 * watson_domain - e.g. `https://watson-api-explorer.mybluemix.net/`.
 * api_endpoint - API endpoint URI, e.g. `personality-insights/api/v3/profile`.
+* version - e.g. `2016-05-20`.
+* user - username.
+* password - your password
 * text - A maximum of 20 MB of content to analyze, though the service requires much less text.
-
 * method - optional request method, defauls to `POST`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
