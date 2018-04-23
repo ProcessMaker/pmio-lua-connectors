@@ -5,10 +5,10 @@
 
 ## Additional requirements
 
-  * (luafilesystem)[https://keplerproject.github.io/luafilesystem/manual.html]
+  * (lbase64)[https://luarocks.org/modules/luarocks/lbase64]
 
   ```
-  luarocks install luafilesystem
+  luarocks install lbase64
   ```
 
 ## Input parameters
@@ -21,6 +21,7 @@
 * password - your password
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
+
 ## Output parameters
 All connector output parameters could be used in PMIO Service Task output parameters as a value placeholders in curly braces.
 
@@ -28,7 +29,7 @@ Example connector output parameters:
 ```
 {
   "code":200,
-  "output":"\/absolute\/path\/to\/output.mp3",
+  "output":_here_will_be_base64_encoded_content_,
   "headers":{ ... }
 }
 ```
@@ -40,7 +41,7 @@ Example connector output parameters:
 local https = require("ssl.https")
 local ltn12 = require"ltn12"
 local cjson = require("cjson")
-local lfs = require"lfs"
+local base64 = require("base64")
 
 local mime = require("mime")
 
@@ -86,16 +87,10 @@ r, c,  h = https.request{
 
 -- printing result output data as JSON
 if c == 200 then
-  local output = io.open("output.mp3", "w")
-  output:write(table.concat(respbody))
-  output:close()
-
-  local outputPath = lfs.currentdir() .. '/output.mp3'
-
   print(cjson.encode({
     code = c,
     headers = h,
-    output = outputPath
+    output = base64.encode(table.concat(respbody))
   }))
 else
   print(cjson.encode({
