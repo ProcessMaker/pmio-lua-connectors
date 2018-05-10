@@ -21,8 +21,10 @@ All connector output parameters could be used in PMIO Service Task output parame
 Example connector output parameters:
 
 ```
-
+ip_address = {response.ip_address}
+answered_questions = {response.answered_questions}
 ```
+
 * response - JSON decoded structure received from API response.
 * code - HTTP response code.
 * headers - headers structure received from API response.
