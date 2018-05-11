@@ -8,7 +8,7 @@ Authorization use [Oauth authentication](https://developers.google.com/analytics
 
 ## Input parameters
 
-* `client_id` - application client_secret.
+* `client_id` - application client_id.
 * `client_secret` - client_secret
 * `refresh_token`
 * `api_endpoint` - api endpoint, e.g. calendars/example@gmail.com
