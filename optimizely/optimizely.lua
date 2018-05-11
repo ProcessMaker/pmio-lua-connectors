@@ -1,16 +1,15 @@
 --[[
 
-# [Moxtra API](https://developer.moxtra.com/docs/docs-rest-api) connector.
+# [Optimizely API](https://developers.optimizely.com/x/rest/introduction/) connector.
 
 ### Authorization
 
-Authorization use [OAuth 2.0](https://developer.moxtra.com/docs/docs-oauth/).
+Authorization use [OAuth 2.0](https://developers.optimizely.com/x/authentication/oauth/#authorization).
 
 ## Input parameters
 
 * access_tokent - your Access Token.
 * api_endpoint - API endpoint URI, e.g. `v1/me`.
-* domain - e.g. `https://apisandbox.moxtra.com/`
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
@@ -22,33 +21,26 @@ Example connector output parameters:
 
 ```
 {
-    "code": "RESPONSE_SUCCESS",
-    "data": {
-        "id": "UiaduESWsbzFoK9TOldC6zF",
-        "email": "jim@test.com",
-        "name": "jim test",
-        "first_name": "jim",
-        "last_name": "test",
-        "unique_id": "",
-        "picture_uri": "https://www.moxtra.com/user/2342",
-        "type": "USER_TYPE_NORMAL",
-        "timezone": "America/Los_Angeles",
-        "language": "en",
-        "org_id": "PuE0cDUJRkg98FG0FUwJqi4",
-        "org_plan_code": "prouser",
-        "org_status": "GROUP_NORMAL_SUBSCRIPTION",
-        "teams": [
-            {
-                "id": "PRTA3fRhzcxEPit77Dw063F",
-                "name": "John's team",
-                "created_time": 1467327047209,
-                "updated_time": 1468541973985
-            }
-        ]
-        "created_time": 1348864985783,
-        "updated_time": 1348864985783
-    }
+  "id": 859720118,
+  "account_id": 555650815,
+  "code_revision": 12,
+  "project_name": "My even newer project name",
+  "project_status": "Active",
+  "created": "2014-04-16T21:33:34.408430Z",
+  "last_modified": "2014-06-10T22:12:21.707170Z",
+  "library": "jquery-1.6.4-trim",
+  "include_jquery": false,
+  "js_file_size": 23693,
+  "project_javascript": "someFunction = function () {\n //Do cool reusable stuff \n}"
+  "enable_force_variation": false,
+  "exclude_disabled_experiments": false,
+  "exclude_names": null,
+  "ip_anonymization": false,
+  "ip_filter": "1.2.3.4",
+  "socket_token": "AABBCCDD~123456789",
+  "dcp_service_id": 121234
 }
+
 
 ```
 * response - JSON decoded structure received from API response.
