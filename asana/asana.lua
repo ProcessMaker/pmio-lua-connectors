@@ -8,9 +8,8 @@ Authorization use [Access Token](https://asana.com/guide/help/api/api).
 
 ## Input parameters
 
-* access_tokent - your  Personal Access Token.
+* access_token - your  Personal Access Token.
 * api_endpoint - API endpoint URI, e.g. `api/1.0/users/me`.
-* domain - e.g. `https://app.asana.com/`
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
