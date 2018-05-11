@@ -10,7 +10,6 @@ Authorization use [API Key](https://devcenter.heroku.com/articles/platform-api-q
 
 * access_token - your API Key.
 * api_endpoint - API endpoint URI, e.g. `apps`.
-* domain - e.g. `https://api.heroku.com/`
 * method - optional request method, defauls to `GET`, could be `GET`, `POST`, `PUT`, `DELETE`.
 * post_data - optional JSON string used to post data.
 
